@@ -1,0 +1,247 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jan 24, 2024, 11:16:56 AM
+    Author     : phamg
+*/
+
+.box{
+    height: 200px;
+    align-items: flex-start;
+    border: 0.0625rem solid #dadce0;
+    border-radius: 10px 10px 0px 0px;
+}
+.circle {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(132,204,229);
+    border-radius: 50%;
+    margin: 5px 5px 5px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+}
+.outer-box {
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    height: 50px;
+    border: 0.0625rem solid #dadce0;
+    border-top: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 10px
+}
+.outer-box img{
+    margin: 10px;
+}
+.outer-box img:hover {
+    filter: brightness(50%);
+}
+.select_class{
+    border-bottom: #e4e4e4 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select_class a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+.select_class a:hover {
+    border-bottom: solid #dadce0;
+    border-radius: 0px;
+}
+.create_plus {
+    background-image:url( ${pageContext.request.contextPath}/Class/images/add.png)
+
+}
+.current-page {
+    border-bottom: solid #3498db;
+    border-radius: 0px;
+
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #232323;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination a:hover {
+    color: white;
+    background-color: #808387;
+    border-radius: 50%;
+}
+
+.pagination .current-page {
+    background-color: #808387;
+    color: white;
+    filter: brightness(150%);
+    border-radius: 50%;
+    border-bottom: none;
+}
+.Popup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.behind {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(18, 18, 18, 0.7);
+    z-index: 9;
+    display: none;
+}
+.formPopup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 10%);
+    z-index: 10;
+    border-radius: 10px;
+}
+.formContainer {
+    width: 500px;
+    height: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+}
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+}
+
+.inputGroup input {
+    height: 60px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid gray 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 0 16px;
+    font-size: 16px;
+}
+
+.inputGroup::before {
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 16px;
+    font-size: 14px;
+    color: rgb(88, 88, 88);
+    transform: translateY(50%);
+    background-color: #fff;
+    padding: 0 8px;
+}
+
+.inputGroup input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.btn_cancel {
+    background-color: rgba(25,25,25,0);
+    width: 60px;
+    position: absolute;
+    bottom: 10px;
+    right:  14%;
+    border: none;
+    margin: 2px;
+    color: rgb(128,131,135);
+}
+
+.btn_add {
+    background-color: rgba(25,25,25,0);
+    width: 60px;
+    position: absolute;
+    bottom: 10px;
+    right: 1%;
+    border: none;
+    margin: 2px;
+    color: rgb(128,131,135);
+}
+.btn_cancel:active,
+.btn_add:active {
+    background-color: rgba(25,25,25,0.5);
+    outline: none;
+    filter: brightness(150%);
+    margin: 2px;
+    color: white;
+}
+.btn_cancel:hover,
+.btn_add:hover {
+    background-color: rgba(25,25,25,0.1);
+    outline: none;
+    filter: brightness(150%);
+    margin: 2px;
+    color: rgb(128,131,135);
+}
+.inputGroup {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.inputGroup input {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    font-size: 16px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.inputGroup input:focus {
+    outline: none;
+    border-bottom: 2px solid #3498db;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    font-size: 16px;
+    color: rgb(88, 88, 88);
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s, color 0.3s;
+    transform: translateY(-50%);
+}
+
+.inputGroup input:not(:placeholder-shown) + .title {
+    transition: none;
+    top: 0;
+    font-size: 12px;
+    transform: translateY(0);
+}
+
+.inputGroup input:focus + .title {
+    top: 0;
+    font-size: 12px;
+    color: #3498db;
+    transform: translateY(0);
+}

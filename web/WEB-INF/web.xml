@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>SITE_MAP_FILE</param-name>
+        <param-value>/WEB-INF/siteMaps.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>ROLE_MAP_FILE</param-name>
+        <param-value>/WEB-INF/roleMaps.properties</param-value>
+    </context-param>
+    <filter>
+        <filter-name>DispatcherFilter</filter-name>
+        <filter-class>Filters.DispatcherFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AuthorizationFilter</filter-name>
+        <filter-class>Filters.AuthorizationFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>Filters.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthorizationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>DispatcherFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>Listener.MyContextServletListener</listener-class>
+    </listener>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/PageNotFound.jsp</location>
+    </error-page>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

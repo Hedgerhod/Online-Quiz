@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Volume Control</title>
+        <style>
+            #volume-control {
+                width: 200px;
+                margin: 50px auto;
+                position: relative;
+                display: flex;
+            }
+
+            #volume-bar {
+                margin-top: 4px;
+                width: 100%;
+                height: 20px;
+                background-color: #ccc;
+                border-radius: 5px;
+                float: left;
+            }
+
+            #volume-level {
+                width: 0;
+                height: 100%;
+                background-color: #4caf50;
+                border-radius: 5px;
+                transition: width 0.5s;
+            }
+
+            button {
+                padding: 0px 3px;
+                border-radius: 50%;
+                float: left;
+                margin-right: 10px;
+                outline: none;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="volume-control">
+            <button onclick="pumpVolume()"><img src="images/add.png" style="width: 20px; outline: none;" alt="alt"/></button>
+            <div id="volume-bar">
+                <div id="volume-level"></div>
+            </div>
+        </div>
+
+        <script>
+            let currentVolume = 20;
+            let timeout;
+
+            function pumpVolume() {
+                if (currentVolume < 100) {
+                    currentVolume += 10;
+                } else {
+                    currentVolume = 0;
+                }
+
+                updateVolume();
+                clearTimeout(timeout);
+                timeout = setTimeout(autoDecreaseVolume, 200);
+            }
+
+            function autoDecreaseVolume() {
+                currentVolume = 0;
+                updateVolume();
+            }
+
+            function updateVolume() {
+                const volumeBar = document.getElementById('volume-level');
+                volumeBar.style.width = currentVolume + '%';
+            }
+        </script>
+
+    </body>
+</html>
